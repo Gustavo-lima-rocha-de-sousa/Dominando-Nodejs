@@ -11,6 +11,9 @@ const server = express();
 
 // Request body = { "name": "Gustavo", "age": 25 }
 
+// http://localhost:3000/hello
+// Body params = { "nome": "Gustavo", "idade": 25 }
+
 server.get("/hello", (req, res) => {
   const { nome, idade } = req.query;
 
