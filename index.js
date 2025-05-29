@@ -9,10 +9,7 @@ const server = express();
 // Route params = /hello/:nome
 // *Parametros de rotas são obrigatórios*
 
-// Request body = { "name": "Gustavo", "age": 25 }
-
-// http://localhost:3000/hello
-// Body params = { "nome": "Gustavo", "idade": 25 }
+// Request body = { "name": "Gustavo", "idade": 25 }
 
 server.get("/hello", (req, res) => {
   const { nome, idade } = req.query;
@@ -23,4 +20,17 @@ server.get("/hello", (req, res) => {
     idade: idade,
   });
 });
+
+// http://localhost:3000/hello
+// Body params = { "nome": "Gustavo", "idade": 25 }
+
+server.get("/hello/:nome", (req, res) => {
+  const { nome, idade } = req.params;
+
+  return res.json({
+    title: "Hello World",
+    message: `Hello ${nome} welcome to my API !`,
+  });
+});
+
 server.listen(3000);
